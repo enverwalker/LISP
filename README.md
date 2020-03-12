@@ -25,11 +25,11 @@
   ```
   Код:
   ```lisp
-  (print (caar(cdaddr '(1 2 '(цель) 3 4))))
+  (print (caar(cdaddr '(1 2 '(цель) 3 4)))) ; => ЦЕЛЬ
 
-  (print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4)))))))
+  (print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4))))))) ; => ЦЕЛЬ
 
-  (print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель)))))))))
+  (print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель))))))))) ; => ЦЕЛЬ
   ```
   Тесты:
   ```lisp
@@ -44,7 +44,7 @@
   
   Код:
 ```lisp
-(defun dr2 (li)
+(defun repEl (li)
 	(if (null li)
 		nil
 		(( lambda (first second res-tail)
@@ -52,14 +52,17 @@
 				res-tail 
 				(cons first res-tail)
 			)
-		) (car li) (cadr li) (dr2 (cdr li)) ) 
+		) (car li) (cadr li) (repEl (cdr li)) ) 
 	)
 )
 ```
   Тесты:
 ```
-(dr2 '(1 1 2 1 2 1))
-(1 2 1 2 1)
+(print (repEl '(3 3 4 5 5 10 10 10 11))) ; => (3 4 5 10 11)
+
+(print (repEl '(12 12 56 67 88 88))) ; => (12 56 67 88)
+
+(print (repEl '(0 0 0 43 4))) ; => (0 43 4) 
 ```
 ### Задача 16
   Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
