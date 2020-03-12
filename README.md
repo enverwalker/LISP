@@ -47,10 +47,10 @@
 (defun ReplaceInList (li)
 	(if (null li)
 		nil
-		(( lambda (first second res-tail)
+		(( lambda (first second re-tail)
 			(if (equal first second)
-				res-tail 
-				(cons first res-tail)
+				re-tail 
+				(cons first re-tail)
 			)
 		) (car li) (cadr li) (ReplaceInList (cdr li)) ) 
 	)
