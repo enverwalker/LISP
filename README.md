@@ -44,7 +44,7 @@
   
   Код:
 ```lisp
-(defun repEl (li)
+(defun ReplaceInList (li)
 	(if (null li)
 		nil
 		(( lambda (first second res-tail)
@@ -52,17 +52,17 @@
 				res-tail 
 				(cons first res-tail)
 			)
-		) (car li) (cadr li) (repEl (cdr li)) ) 
+		) (car li) (cadr li) (ReplaceInList (cdr li)) ) 
 	)
 )
 ```
   Тесты:
 ```lisp
-(print (repEl '(3 3 4 5 5 10 10 10 11))) ; => (3 4 5 10 11)
+(print (ReplaceInList '(3 3 4 5 5 10 10 10 11))) ; => (3 4 5 10 11)
 
-(print (repEl '(12 12 56 67 88 88))) ; => (12 56 67 88)
+(print (ReplaceInList '(12 12 56 67 88 88))) ; => (12 56 67 88)
 
-(print (repEl '(0 0 0 43 4))) ; => (0 43 4) 
+(print (ReplaceInList '(0 0 0 43 4))) ; => (0 43 4) 
 ```
 ### Задача 16
   Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
