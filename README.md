@@ -71,8 +71,8 @@
   Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
 
 <details><summary>Код:</summary>
-  <p>
-	
+<p>
+
   ```lisp
   (defun AddInList (list additionalList index) 
     ((lambda (head tail) 
@@ -85,9 +85,9 @@
     )
   )
 ```
-  </p>
-</details>
-<details><summary>Тесты:</summary>
+</p>
+
+<summary>Тесты:</summary>
 <p>
 	
 ```lisp
