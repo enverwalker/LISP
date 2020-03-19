@@ -63,6 +63,7 @@
 
 (print (ReplaceInList '(0 0 0 43 4))) ; => (0 43 4) 
 ```
+
 ### Задача 16
   Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
 <details><summary>Код:</summary>
@@ -82,12 +83,17 @@
 ```
   </p>
 </details>
-  Тесты: 
+<details><summary>Тесты:</summary>
+<p>
+	
 ```lisp
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4)) ; => (1 2 3 4 "Put me Here" 5 7 8 9)
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 0)) ; => ("Put me Here" 1 2 3 4 5 7 8 9)
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9)) ; => (1 2 3 4 5 7 8 9 NIL "Put me Here")
 ```
+</p>
+</details>
+
 ### Задача 29  
   Определите функцию, вычисляющую глубину списка (самой глубокой ветви).
 <details><summary>Код:</summary>
