@@ -23,7 +23,9 @@
   ((1) (2 цель) (3 (4)))
   ((1 (2 (3 4 цель))))
   ```
-  Код:
+<details><summary>Код:</summary>
+  <p>
+	
   ```lisp
   (print (caar(cdaddr '(1 2 '(цель) 3 4)))) ; => ЦЕЛЬ
 
@@ -31,10 +33,13 @@
 
   (print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель))))))))) ; => ЦЕЛЬ
   ```
+  </p>
+</details>
 ### Задача 12
   Определите функцию, заменяющую в исходном списке два подряд идущих одинаковых элемента одним.
-  
-  Код:
+<details><summary>Код:</summary>
+  <p>
+	
 ```lisp
 (defun ReplaceInList (li)
 	(if (null li)
@@ -48,6 +53,8 @@
 	)
 )
 ```
+  </p>
+</details>
   Тесты:
 ```lisp
 (print (ReplaceInList '(3 3 4 5 5 10 10 10 11))) ; => (3 4 5 10 11)
@@ -58,8 +65,9 @@
 ```
 ### Задача 16
   Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
-  
-  Код:
+<details><summary>Код:</summary>
+  <p>
+	
   ```lisp
   (defun AddInList (list additionalList index) 
     ((lambda (head tail) 
@@ -72,6 +80,8 @@
     )
   )
 ```
+  </p>
+</details>
   Тесты: 
 ```lisp
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4)) ; => (1 2 3 4 "Put me Here" 5 7 8 9)
@@ -79,9 +89,9 @@
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9)) ; => (1 2 3 4 5 7 8 9 NIL "Put me Here")
 ```
 ### Задача 29  
-Определите функцию, вычисляющую глубину списка (самой глубокой ветви).
+  Определите функцию, вычисляющую глубину списка (самой глубокой ветви).
 <details><summary>Код:</summary>
-<p>
+  <p>
 	
 ```lisp
 (defun maxdeep (lst)(
@@ -95,5 +105,5 @@
     )
 )
 ```  
-</p>
+  </p>
 </details>
