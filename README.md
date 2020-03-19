@@ -83,6 +83,7 @@
 <details><summary>Решение</summary>
 <p>  
 Код:
+
 ```lisp
 (defun maxdeep (lst)(
         cond
