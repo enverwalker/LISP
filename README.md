@@ -80,10 +80,9 @@
 ```
 ### Задача 29  
 Определите функцию, вычисляющую глубину списка (самой глубокой ветви).
-<details><summary>Решение</summary>
-<p>  
-Код:
-
+<details><summary>Код:</summary>
+<p>
+	
 ```lisp
 (defun maxdeep (lst)(
         cond
