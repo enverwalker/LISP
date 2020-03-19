@@ -72,8 +72,28 @@
     )
   )
 ```
-  Тесты:
+  Тесты: 
 ```lisp
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4)) ; => (1 2 3 4 "Put me Here" 5 7 8 9)
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 0)) ; => ("Put me Here" 1 2 3 4 5 7 8 9)
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9)) ; => (1 2 3 4 5 7 8 9 NIL "Put me Here")
+```
+### Задача 29  
+Определите функцию, вычисляющую глубину списка (самой глубокой ветви).
+<details><summary>Решение</summary>
+<p>  
+Код:
+```lisp
+(defun maxdeep (lst)(
+        cond
+        ((atom lst) 0)
+        (t
+            (
+                max (+ 1 (maxdeep (car lst))) (maxdeep (cdr lst))
+            )
+        )
+    )
+)
+```  
+</p>
+</details>
