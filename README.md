@@ -32,11 +32,14 @@
 <p>
 	
   ```lisp
-  (print (caar(cdaddr '(1 2 '(цель) 3 4)))) ; => ЦЕЛЬ
+ Input: (print (caar(cdaddr '(1 2 '(цель) 3 4))))
+ Output: ЦЕЛЬ
 
-  (print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4))))))) ; => ЦЕЛЬ
+ Input: (print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4)))))))
+ Output: ЦЕЛЬ
 
-  (print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель))))))))) ; => ЦЕЛЬ
+ Input: (print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель)))))))))
+ Output: ЦЕЛЬ
   ```
 </p>
 </details>
@@ -65,11 +68,11 @@
 <p>
 
 ```lisp
-(print (ReplaceInList '(3 3 4 5 5 10 10 10 11))) ; => (3 4 5 10 11)
+Input: (print (ReplaceInList '(3 3 4 5 5 10 10 10 11)))
+Output: (3 4 5 10 11)
 
-(print (ReplaceInList '(12 12 56 67 88 88))) ; => (12 56 67 88)
-
-(print (ReplaceInList '(0 0 0 43 4))) ; => (0 43 4) 
+Input: (print (ReplaceInList '(12 12 56 67 88 88)))
+Output: (12 56 67 88)
 ```
 </p>
 </details>
@@ -97,9 +100,11 @@
 <p>
 	
 ```lisp
-(print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4)) ; => (1 2 3 4 "Put me Here" 5 7 8 9)
-(print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 0)) ; => ("Put me Here" 1 2 3 4 5 7 8 9)
-(print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9)) ; => (1 2 3 4 5 7 8 9 NIL "Put me Here")
+Input: (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4))
+Output: (1 2 3 4 "Put me Here" 5 7 8 9)
+
+Input: (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9))
+Output: (1 2 3 4 5 7 8 9 NIL "Put me Here")
 ```
 </p>
 </details>
