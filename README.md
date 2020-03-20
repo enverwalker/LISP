@@ -51,10 +51,10 @@
 	
 ```lisp
 (defun ReplaceInList (lst)
-  ((lambda ( x y )    
+  ((lambda (x y)    
         (cond ((null y) lst)
              ((equal x (cadr lst)) (cons x (ReplaceInList (cddr lst))))
-             (t (cons x (ReplaceInList y )))))  
+             (t (cons x (ReplaceInList y)))))  
   (car lst) 
   (cdr lst )))
 ```
