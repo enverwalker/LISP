@@ -208,9 +208,9 @@ Output: T
 
 (defun disjoint (a b)
 	(not (mapcan (lambda (el)
-					(cond 
-						((my-member el b) (list T))
-					)) a) 
+			(cond 
+				((my-member el b) (list T))
+	     		)) a) 
 	)
 )
 ```  
@@ -263,18 +263,18 @@ Output: NIL
 <p>
 
 ```lisp
-(putprop `Alex `parent1 `Ann)
-(putprop `Alex `parent2 `Jury)
-(putprop `Jane `parent1 `Ann)
-(putprop `Jane `parent2 `Sebastian)
-(putprop `Bob `parent1 `Helga)
-(putprop `Bob `parent2 `Ron)
+Input: (putprop `Alex `parent1 `Ann)
+Input: (putprop `Alex `parent2 `Jury)
+Input: (putprop `Jane `parent1 `Ann)
+Input: (putprop `Jane `parent2 `Sebastian)
+Input: (putprop `Bob `parent1 `Helga)
+Input: (putprop `Bob `parent2 `Ron)
 
-(print (sisterbrotherp `Alex `Jane))
-(print (sisterbrotherp `Alex `Bob))
+Input: (print (sisterbrotherp `Alex `Jane))
+Output: T
 
-;T
-;NIL
+Input: (print (sisterbrotherp `Alex `Bob))
+Output: NIL
 ```  
 </p>
 </details>
