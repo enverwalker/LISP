@@ -318,3 +318,44 @@ Output: NIL
 ```  
 </p>
 </details>
+
+### Задача 48
+  Напишите предикат (ИМЕЕТ-СВОЙСТВО символ свойство), который проверяет, обладает ли символ данным свойством.
+<details><summary>Код:</summary>
+<p>
+
+```lisp
+(defun Has(x property)
+	(Find property (symbol-plist x)) 
+) 
+
+(defun Find(property list) 
+      (cond
+      	((null list) nil) 
+        ((equal property (car list)) T) 
+        (t (Find property (cddr list)))
+      )
+) 
+
+(setf (get 'car 'color) 'black) 
+(setf (get 'car 'maxspeed) '140) 
+(setf (get 'car 'mark) 'lada) 
+```  
+</p>
+</details>
+
+<details><summary>Тесты:</summary>
+<p>
+
+```lisp
+Input: (print(ИМЕЕТ-СВОЙСТВО 'car 'color))
+Output: T
+
+Input: (print(ИМЕЕТ-СВОЙСТВО 'car 'maxspeed))
+Output: T
+
+Input: (print(ИМЕЕТ-СВОЙСТВО 'car 'country))
+Output: NIL
+```  
+</p>
+</details>
