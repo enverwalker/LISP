@@ -50,17 +50,13 @@
 <p>
 	
 ```lisp
-(defun ReplaceInList (li)
-	(if (null li)
-		nil
-		(( lambda (first second re-tail)
-			(if (equal first second)
-				re-tail 
-				(cons first re-tail)
-			)
-		) (car li) (cadr li) (ReplaceInList (cdr li)) ) 
-	)
-)
+(defun ReplaceInList (lst)
+  ((lambda ( x y )    
+        (cond ((null y) lst)
+             ((equal x (cadr lst)) (cons x (ReplaceInList (cddr lst))))
+             (t (cons x (ReplaceInList y )))))  
+  (car lst) 
+  (cdr lst )))
 ```
 </p>
 </details>
@@ -68,11 +64,14 @@
 <p>
 
 ```lisp
-Input: (print (ReplaceInList '(3 3 4 5 5 10 10 10 11)))
-Output: (3 4 5 10 11)
+Input: (print (ReplaceInList '( a a b b c c c)))
+Output: (A B C C)
 
-Input: (print (ReplaceInList '(12 12 56 67 88 88)))
-Output: (12 56 67 88)
+Input: (print (ReplaceInList '( a a (b b c) (b b c) (b b c) c f f c)))
+Output: (A (B B C) (B B C) C F C)
+
+Input: (print (ReplaceInList '(1 1 1 1 1 1 4 5 67 7 7)))
+Output: (1 1 1 4 5 67 7)
 ```
 </p>
 </details>
