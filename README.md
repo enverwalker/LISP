@@ -126,8 +126,7 @@
 
 ### Задача 35
   1. Определите функцию ПОДМНОЖЕСТВО, которая проверяет, является ли одно множество подмножеством другого.
-  2. Определите также СОБСТВЕННОЕ-ПОДМНОЖЕСТВО.
-<details><summary>1. Код:</summary>
+<details><summary>Код:</summary>
 <p>
 	
 ```lisp
@@ -150,7 +149,7 @@
 </p>
 </details>
 
-<details><summary>1. Тесты:</summary>
+<details><summary>Тесты:</summary>
 <p>
 	
 ```lisp
@@ -163,7 +162,8 @@ Output: T
 </p>
 </details>
 
-<details><summary>2. Код:</summary>
+  2. Определите также СОБСТВЕННОЕ-ПОДМНОЖЕСТВО.
+<details><summary>Код:</summary>
 <p>
 	
 ```lisp
@@ -174,7 +174,7 @@ Output: T
 </p>
 </details>
 
-<details><summary>2. Тесты:</summary>
+<details><summary>Тесты:</summary>
 <p>
 	
 ```lisp
@@ -212,7 +212,7 @@ Output: T
 </p>
 </details>
 
-<details><summary>Код:</summary>
+<details><summary>Тесты:</summary>
 <p>
 	
 ```lisp
