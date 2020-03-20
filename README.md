@@ -224,3 +224,52 @@ Output: NIL
 ```  
 </p>
 </details>
+
+### Задача 46  
+  Предположим, что отец и мать некоторого лица, хранятся как значения соответствующих свойств у символа, обозначающего это лицо. Напишите функцию (РОДИТЕЛИ x), которая возвращает в качестве значения родителей, и предикат (СЕСТРЫ-БРАТЬЯ x1 x2), который истинен в случае, если x1 и x2 — сестры или братья, родные или с одним общим родителем.
+<details><summary>Код:</summary>
+<p>    
+
+```lisp
+(defun parents (name)
+    (
+        list
+        (getprop name `parent1)
+        (getprop name `parent2)
+    )
+)
+
+(defun sisterbrotherp (first_person second_person)
+    (
+        (lambda (first_person_parents second_person_parents)
+            (cond
+                ((null (intersectp first_person_parents second_person_parents)) T)
+                (T NIL)
+            )
+        )
+        (parents first_person)
+        (parents second_person)
+    )
+)
+```  
+</p>
+</details>  
+<details><summary>Тесты:</summary>
+<p>
+
+```lisp
+(putprop `Alex `parent1 `Ann)
+(putprop `Alex `parent2 `Jury)
+(putprop `Jane `parent1 `Ann)
+(putprop `Jane `parent2 `Sebastian)
+(putprop `Bob `parent1 `Helga)
+(putprop `Bob `parent2 `Ron)
+
+(print (sisterbrotherp `Alex `Jane))
+(print (sisterbrotherp `Alex `Bob))
+
+;T
+;NIL
+```  
+</p>
+</details>
