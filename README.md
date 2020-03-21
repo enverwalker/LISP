@@ -45,6 +45,8 @@
 </p>
 </details>
 
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
+
 ### Задача 12
   Определите функцию, заменяющую в исходном списке два подряд идущих одинаковых элемента одним.
 <details><summary>Код:</summary>
@@ -99,6 +101,9 @@ Output: (1 1 1 4 5 67 7)
 ```
 </p>
 </details>
+
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
+
 <details><summary>Тесты:</summary>
 <p>
 	
@@ -131,6 +136,8 @@ Output: ("Put me Here" 1 2 3 4 5 7 8 9)
 ```  
 </p>
 </details>
+
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
 
 <details><summary>Тесты:</summary>
 <p>
@@ -173,6 +180,8 @@ Output: 2
 </p>
 </details>
 
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
+
 <details><summary>Тесты:</summary>
 <p>
 	
@@ -200,6 +209,8 @@ Output: NIL
 ```  
 </p>
 </details>
+
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
 
 <details><summary>Тесты:</summary>
 <p>
@@ -242,6 +253,8 @@ Output: T
 </p>
 </details>
 
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
+
 <details><summary>Тесты:</summary>
 <p>
 	
@@ -283,6 +296,8 @@ Output: NIL
 </p>
 </details>
 
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
+
 <details><summary>Тесты:</summary>
 <p>
 	
@@ -322,7 +337,10 @@ Output: NIL
 (setf (get 'z 'dad) 'd)
 ```  
 </p>
-</details>  
+</details>
+
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
+
 <details><summary>Тесты:</summary>
 <p>
 
@@ -363,6 +381,8 @@ Output: NIL
 ```  
 </p>
 </details>
+
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
 
 <details><summary>Тесты:</summary>
 <p>
