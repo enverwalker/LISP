@@ -1,7 +1,7 @@
 ## Абибуллаев Энвер
 
 # Практические задания по СЯП
-[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler "Онлайн-компилятор")
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
 - [Основы языка LISP](#Основы-языка-LISP)
   - [Задача 1](#Задача-1)
   - [Задача 12](#Задача-12)
