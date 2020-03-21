@@ -65,10 +65,10 @@ https://rextester.com/l/common_lisp_online_compiler
 <p>
 
 ```lisp
-Input: (print (ReplaceInList '( a a b b c c c)))
+Input: (print (ReplaceInList '(a a b b c c c)))
 Output: (A B C C)
 
-Input: (print (ReplaceInList '( a a (b b c) (b b c) (b b c) c f f c)))
+Input: (print (ReplaceInList '(a a (b b c) (b b c) (b b c) c f f c)))
 Output: (A (B B C) (B B C) C F C)
 
 Input: (print (ReplaceInList '(1 1 1 1 1 1 4 5 67 7 7)))
