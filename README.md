@@ -29,9 +29,9 @@
   ```
 </p>
 </details>
+[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
 <details><summary>Код:</summary>
-<p>
-[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)	
+<p>	
   ```lisp
  Input: (print (caar(cdaddr '(1 2 '(цель) 3 4))))
  Output: ЦЕЛЬ
