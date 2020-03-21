@@ -61,7 +61,9 @@
 ```
 </p>
 </details>
+
 [Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
+
 <details><summary>Тесты:</summary>
 <p>
 
