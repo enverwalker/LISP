@@ -105,6 +105,9 @@ Output: (1 2 3 4 "Put me Here" 5 7 8 9)
 
 Input: (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9))
 Output: (1 2 3 4 5 7 8 9 NIL "Put me Here")
+
+Input: (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 0))
+Output: ("Put me Here" 1 2 3 4 5 7 8 9)
 ```
 </p>
 </details>
