@@ -30,7 +30,8 @@
 </p>
 </details>
 <details><summary>Код:</summary>
-<p>	
+<p>
+	
   ```lisp
  Input: (print (caar(cdaddr '(1 2 '(цель) 3 4))))
  Output: ЦЕЛЬ
@@ -47,7 +48,8 @@
 ### Задача 12
   Определите функцию, заменяющую в исходном списке два подряд идущих одинаковых элемента одним.
 <details><summary>Код:</summary>
-<p>	
+<p>
+
 ```lisp
 (defun ReplaceInList (lst)
   ((lambda (x y)    
@@ -59,6 +61,7 @@
 ```
 </p>
 </details>
+
 <details><summary>Тесты:</summary>
 <p>
 
