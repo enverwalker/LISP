@@ -29,7 +29,6 @@
   ```
 </p>
 </details>
-[Онлайн-компилятор](https://rextester.com/l/common_lisp_online_compiler)
 <details><summary>Код:</summary>
 <p>	
   ```lisp
@@ -48,8 +47,7 @@
 ### Задача 12
   Определите функцию, заменяющую в исходном списке два подряд идущих одинаковых элемента одним.
 <details><summary>Код:</summary>
-<p>
-	
+<p>	
 ```lisp
 (defun ReplaceInList (lst)
   ((lambda (x y)    
