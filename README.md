@@ -174,11 +174,14 @@ Output: 2
 <p>
 	
 ```lisp
-Input: (subset '(1 2 3) '(5 7 8))
+Input: (print (subset '(1 2 3) '(5 7 8)))
 Output: NIL
 
-Input: (subset '(8 4 2) '(6 3 4 7 2 8))
+Input: (print (subset '(8 4 2) '(6 3 4 7 2 8)))
 Output: T
+
+Input: (print (subset '(3 6 5 7) '(3)))
+Output: NIL
 ```  
 </p>
 </details>
@@ -199,10 +202,13 @@ Output: T
 <p>
 	
 ```lisp
-Input: (proper-subset '(1 2 3) '(1 2 3))
+Input: (print (proper-subset '(1 2 3) '(1 2 3)))
 Output: NIL
 
-Input: (proper-subset '(1 2 3) '(1 2 3 4 5 6 7 8))
+Input: (print (proper-subset '(1 2 3) '(1 2 3 4 5 6 7 8)))
+Output: T
+
+Input: (print (proper-subset '(0 5 7 7) '(1 2 3 4 5 0 7 5 7)))
 Output: T
 ```  
 </p>
@@ -237,10 +243,13 @@ Output: T
 <p>
 	
 ```lisp
-Input: (disjoint '(1 2 3) '(4 5 6))
+Input: (print (disjoint '(1 2 3) '(4 5 6)))
 Output: T
 
-Input: (disjoint '(2 5 9 1) '(1 6 4 5))
+Input: (print (disjoint '(2 5 9 1) '(1 6 4 5)))
+Output: NIL
+
+Input: (print (disjoint '(1 2 3) '(1 2 3)))
 Output: NIL
 ```  
 </p>
@@ -293,26 +302,21 @@ Output: NIL
 <p>    
 
 ```lisp
-(defun parents (name)
-    (
-        list
-        (getprop name `parent1)
-        (getprop name `parent2)
-    )
+(defun parents (x)
+	(list (get x 'mom) (get x 'dad))
 )
 
-(defun sisterbrotherp (first_person second_person)
-    (
-        (lambda (first_person_parents second_person_parents)
-            (cond
-                ((null (intersectp first_person_parents second_person_parents)) T)
-                (T NIL)
-            )
-        )
-        (parents first_person)
-        (parents second_person)
-    )
+(defun brother (x y)
+	(or (eq (get x 'mom) (get y 'mom))
+		(eq (get x 'dad) (get y 'dad))
+	)
 )
+(setf (get 'x 'mom) 'a)
+(setf (get 'x 'dad) 'b)
+(setf (get 'y 'mom) 'a)
+(setf (get 'y 'dad) 'b)
+(setf (get 'z 'mom) 'c)
+(setf (get 'z 'dad) 'd)
 ```  
 </p>
 </details>  
@@ -320,17 +324,13 @@ Output: NIL
 <p>
 
 ```lisp
-Input: (putprop `Alex `parent1 `Ann)
-Input: (putprop `Alex `parent2 `Jury)
-Input: (putprop `Jane `parent1 `Ann)
-Input: (putprop `Jane `parent2 `Sebastian)
-Input: (putprop `Bob `parent1 `Helga)
-Input: (putprop `Bob `parent2 `Ron)
+Input: (print (parents 'x))
+Output: (A B)
 
-Input: (print (sisterbrotherp `Alex `Jane))
+Input: (print (brother 'y 'x))
 Output: T
 
-Input: (print (sisterbrotherp `Alex `Bob))
+Input: (print (brother 'y 'z))
 Output: NIL
 ```  
 </p>
@@ -365,13 +365,13 @@ Output: NIL
 <p>
 
 ```lisp
-Input: (print(ИМЕЕТ-СВОЙСТВО 'car 'color))
+Input: (print(Has 'car 'color))
 Output: T
 
-Input: (print(ИМЕЕТ-СВОЙСТВО 'car 'maxspeed))
+Input: (print(Has 'car 'maxspeed))
 Output: T
 
-Input: (print(ИМЕЕТ-СВОЙСТВО 'car 'country))
+Input: (print(Has 'car 'country))
 Output: NIL
 ```  
 </p>
