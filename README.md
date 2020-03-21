@@ -114,16 +114,29 @@ Output: (1 2 3 4 5 7 8 9 NIL "Put me Here")
 <p>
 	
 ```lisp
-(defun maxdeep (lst)(
-        cond
-        ((atom lst) 0)
-        (t
-            (
-                max (+ 1 (maxdeep (car lst))) (maxdeep (cdr lst))
-            )
-        )
-    )
-)
+(defun depth (lst)
+	(if (or (atom lst) (null lst))
+		0
+		(max (+ 1 (depth (car lst))) 
+                     (depth (cdr lst)))
+	)
+)	
+```  
+</p>
+</details>
+
+<details><summary>Тесты:</summary>
+<p>
+	
+```lisp
+Input: (print (depth  '(1 2 3)))
+Output: 1
+
+Input: (print (depth '((1) (2 (4) 5) (3))))
+Output: 3
+
+Input: (print (depth '((1) (2) (3))))
+Output: 2
 ```  
 </p>
 </details>
