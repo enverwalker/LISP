@@ -32,14 +32,15 @@
 <p>
 	
   ```lisp
- Input: (print (caar(cdaddr '(1 2 '(цель) 3 4))))
- Output: ЦЕЛЬ
-
- Input: (print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4)))))))
- Output: ЦЕЛЬ
-
- Input: (print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель)))))))))
- Output: ЦЕЛЬ
+ Input:
+ (print (caar(cdaddr '(1 2 '(цель) 3 4))))
+ (print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4)))))))
+ (print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель)))))))))
+ 
+ Output: 
+ ЦЕЛЬ
+ ЦЕЛЬ
+ ЦЕЛЬ
   ```
 </p>
 </details>
