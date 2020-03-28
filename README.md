@@ -189,7 +189,8 @@ Output:
 <p>
 	
 ```lisp
-Input: (print (subset '(1 2 3) '(5 7 8)))
+Input:
+(print (subset '(1 2 3) '(5 7 8)))
 (print (subset '(8 4 2) '(6 3 4 7 2 8)))
 (print (subset '(3 6 5 7) '(3)))
 
@@ -351,9 +352,11 @@ Output:
 <p>
 
 ```lisp
-Input: (print (parents 'x))
+Input:
+(print (parents 'x))
 (print (brother 'y 'x))
 (print (brother 'y 'z))
+
 Output:
 (A B)
 T
@@ -393,9 +396,11 @@ NIL
 <p>
 
 ```lisp
-Input: (print(Has 'car 'color))
+Input:
+(print(Has 'car 'color))
 (print(Has 'car 'maxspeed))
 (print(Has 'car 'country))
+
 Output:
 T
 T
