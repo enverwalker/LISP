@@ -104,6 +104,7 @@
 						)) a)
 	)
 )
+
 ;Тесты:
 
 ;Input:
@@ -121,6 +122,7 @@ NIL
 (defun proper-subset (a b)
     (and (subset a b) (not (equal a b)))
 )
+
 ;Тесты:
 
 ;Input:
