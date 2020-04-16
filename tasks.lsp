@@ -1,35 +1,3 @@
-;Задача 1
-;Запишите последовательности вызовов CAR и CDR, выделяющие из приведённых ниже списков символ цель.
-;Упростите эти вызовы с помощью комбинации селекторов:
-(1 2 цель 3 4)
-((1) (2 цель) (3 (4)))
-((1 (2 (3 4 цель))))
-
-;Input:
-(print (caar(cdaddr '(1 2 '(цель) 3 4))))
-(print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4)))))))
-(print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель)))))))))
-
-
-;Задача 12
-;Определите функцию, заменяющую в исходном списке два подряд идущих одинаковых элемента одним.
-;Код:
-
-(defun ReplaceInList (lst)
-  ((lambda (x y)    
-        (cond ((null y) lst)
-             ((equal x (cadr lst)) (cons x (ReplaceInList (cddr lst))))
-             (t (cons x (ReplaceInList y)))))  
-  (car lst) 
-  (cdr lst )))
-
-;Тесты:
-
-(print (ReplaceInList '(a a b b c c c)))
-(print (ReplaceInList '(a a (b b c) (b b c) (b b c) c f f c)))
-(print (ReplaceInList '(1 1 1 1 1 1 4 5 67 7 7)))
-
-
 ;Задача 16
 ;Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
 ;Код:
@@ -49,24 +17,6 @@
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4))
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9))
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 0))
-
-
-;Задача 29  
-;Определите функцию, вычисляющую глубину списка (самой глубокой ветви).
-;Код:
-(defun depth (lst)
-	(if (or (atom lst) (null lst))
-		0
-		(max (+ 1 (depth (car lst))) 
-                     (depth (cdr lst)))
-	)
-)	
-
-;Тесты:
-
-(print (depth  '(1 2 3)))
-(print (depth '((1) (2 (4) 5) (3))))
-(print (depth '((1) (2) (3))))
 
 
 ;Задача 35
@@ -212,3 +162,53 @@
 (print(Has 'car 'color))
 (print(Has 'car 'maxspeed))
 (print(Has 'car 'country))
+
+
+;Задача 1
+;Запишите последовательности вызовов CAR и CDR, выделяющие из приведённых ниже списков символ цель.
+;Упростите эти вызовы с помощью комбинации селекторов:
+(1 2 цель 3 4)
+((1) (2 цель) (3 (4)))
+((1 (2 (3 4 цель))))
+
+;Input:
+(print (caar(cdaddr '(1 2 '(цель) 3 4))))
+(print (caar(cdadr(cadr '((1) (2 '(цель)) (3 (4)))))))
+(print (caadar(cddar(cdadar '((1 (2 (3 4 '(цель)))))))))
+
+
+;Задача 12
+;Определите функцию, заменяющую в исходном списке два подряд идущих одинаковых элемента одним.
+;Код:
+
+(defun ReplaceInList (lst)
+  ((lambda (x y)    
+        (cond ((null y) lst)
+             ((equal x (cadr lst)) (cons x (ReplaceInList (cddr lst))))
+             (t (cons x (ReplaceInList y)))))  
+  (car lst) 
+  (cdr lst )))
+
+;Тесты:
+
+(print (ReplaceInList '(a a b b c c c)))
+(print (ReplaceInList '(a a (b b c) (b b c) (b b c) c f f c)))
+(print (ReplaceInList '(1 1 1 1 1 1 4 5 67 7 7)))
+
+
+;Задача 29  
+;Определите функцию, вычисляющую глубину списка (самой глубокой ветви).
+;Код:
+(defun depth (lst)
+	(if (or (atom lst) (null lst))
+		0
+		(max (+ 1 (depth (car lst))) 
+                     (depth (cdr lst)))
+	)
+)	
+
+;Тесты:
+
+(print (depth  '(1 2 3)))
+(print (depth '((1) (2 (4) 5) (3))))
+(print (depth '((1) (2) (3))))
