@@ -142,14 +142,14 @@
 ;Напишите предикат (ИМЕЕТ-СВОЙСТВО символ свойство), который проверяет, обладает ли символ данным свойством.
 ;Код:
 
-(defun Has(x property)
+(defun Hass(x property)
 	(Find property (symbol-plist x)) 
 )
-(defun Find(property list) 
+(defun Findd(property list) 
       (cond
       	((null list) nil) 
         ((equal property (car list)) T) 
-        (t (Find property (cddr list)))
+        (t (Findd property (cddr list)))
       )
 ) 
 
@@ -159,10 +159,9 @@
 
 ;Тесты:
 
-(print(Has 'car 'color))
-(print(Has 'car 'maxspeed))
-(print(Has 'car 'country))
-
+(print(Hass 'car 'color))
+(print(Hass 'car 'maxspeed))
+(print(Hass 'car 'country))
 
 ;===========================================Зачтены================================================
 ;Задача 1
