@@ -1,3 +1,4 @@
+(write-line "--— Task №16 —--")
 ;Задача 16
 ;Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
 ;Код:
@@ -11,14 +12,18 @@
       (cdr list)
     )
   )
- 
-;Тесты:
 
+(write-line "")
+(write-line "Test-cases:")
+
+;Тесты:
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4))
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9))
 (print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 0))
 
-
+(write-line "")
+(write-line "")
+(write-line "--— Task №35 —--")
 ;Задача 35
 ;1. Определите функцию ПОДМНОЖЕСТВО, которая проверяет, является ли одно множество подмножеством другого.
 ;Код:
@@ -37,11 +42,15 @@
 	)
 )
 
-;Тесты:
+(write-line "")
+(write-line "Part 1. Test-cases:")
 
+;Тесты:
 (print (subset '(1 2 3) '(5 7 8)))
 (print (subset '(8 4 2) '(6 3 4 7 2 8)))
 (print (subset '(3 6 5 7) '(3)))
+
+(write-line "")
 
 ;2. Определите также СОБСТВЕННОЕ-ПОДМНОЖЕСТВО.
 ;Код:
@@ -49,13 +58,17 @@
     (and (subset a b) (not (equal a b)))
 )
 
-;Тесты:
+(write-line "")
+(write-line "Part 2. Test-cases:")
 
+;Тесты:
 (print (proper-subset '(1 2 3) '(1 2 3)))
 (print (proper-subset '(1 2 3) '(1 2 3 4 5 6 7 8)))
 (print (proper-subset '(0 5 7 7) '(1 2 3 4 5 0 7 5 7)))
 
-
+(write-line "")
+(write-line "")
+(write-line "--— Task №36 —--")
 ;Задача 36
 ;Определите предикат НЕПЕРЕСЕКАЮЩИЕСЯ, проверяющий, что 2 множества не пересекаются, т.е. у них нет
 ;общих элементов.
@@ -76,13 +89,17 @@
 	)
 )
 
-;Тесты:
+(write-line "")
+(write-line "Test-cases:")
 
+;Тесты:
 (print (disjoint '(1 2 3) '(4 5 6)))
 (print (disjoint '(2 5 9 1) '(1 6 4 5)))
 (print (disjoint '(1 2 3) '(1 2 3)))
 
-
+(write-line "")
+(write-line "")
+(write-line "--— Task №38 —--")
 ;Задача 38
 ;Определите функцию ОБЪЕДИНЕНИЕ, формирующую объединение двух множеств.
 ;Код:
@@ -102,13 +119,17 @@
     )
 )
 
-;Тесты:
+(write-line "")
+(write-line "Test-cases:")
 
+;Тесты:
 (print (union~ '(a b c) '(b c d)))
 (print (union~ '(1 2 3 4 5) '(1 2 3 4 12 13 11)))
 (print (union~ '() '()))
 
-
+(write-line "")
+(write-line "")
+(write-line "--— Task №46 —--")
 ;Задача 46  
 ;Предположим, что отец и мать некоторого лица, хранятся как значения соответствующих свойств у символа,
 ;обозначающего это лицо. Напишите функцию (РОДИТЕЛИ x), которая возвращает в качестве значения родителей,
@@ -131,13 +152,17 @@
 (setf (get 'z 'mom) 'c)
 (setf (get 'z 'dad) 'd)
 
-;Тесты:
+(write-line "")
+(write-line "Test-cases:")
 
+;Тесты:
 (print (parents 'x))
 (print (brother 'y 'x))
 (print (brother 'y 'z))
 
-
+(write-line "")
+(write-line "")
+(write-line "--— Task №48 —--")
 ;Задача 48
 ;Напишите предикат (ИМЕЕТ-СВОЙСТВО символ свойство), который проверяет, обладает ли символ данным свойством.
 ;Код:
@@ -157,8 +182,10 @@
 (setf (get 'car 'maxspeed) '140) 
 (setf (get 'car 'mark) 'lada)
 
-;Тесты:
+(write-line "")
+(write-line "Test-cases:")
 
+;Тесты:
 (print(Hass 'car 'color))
 (print(Hass 'car 'maxspeed))
 (print(Hass 'car 'country))
