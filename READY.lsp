@@ -35,17 +35,15 @@
 ;1. Определите функцию ПОДМНОЖЕСТВО, которая проверяет, является ли одно множество подмножеством другого.
 ;Код:
 (defun my-member (a li)
-	(cond
-		((null li) nil)
-		((equal a (car li)) T)
+	(cond ((null li) nil) ((equal a (car li)) T)
 		(t (my-member a (cdr li)))
 	)
 )
 (defun subset (a b)
-    (not (mapcan (lambda (el)
-						(cond 
-							((not (my-member el b)) (list T))
-						)) a)
+	(not (mapcan (lambda (el)
+		(cond ((not (my-member el b)) (list T)))
+                )
+        a)
 	)
 )
 
