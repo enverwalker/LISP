@@ -30,6 +30,26 @@
 
 (write-line "")
 (write-line "")
+(write-line "----------------------------------------- Task №17 ------------------------------------------")
+;Задача 17
+;Создайте предикат, порождающий всевозможные перестановки исходного множества
+;Код:
+(defun insert (a b c)
+  (cond ((null c) (list (append b (list a))))
+     (t (cons (append b (list a) c) (insert a (append b (list (car c))) (cdr c))))))
+(defun rotate (lst)
+  (cond ((null (cdr lst)) (list lst))
+     (t (apply 'append (mapcar (lambda (x) (insert (car lst) nil x)) (rotate (cdr lst)))))))
+(write-line "")
+(write-line "Test-cases:")
+
+;Тесты:
+(print(rotate '(k l)))
+(print(rotate '(k l m)))
+(print(rotate '(k l m n)))
+
+(write-line "")
+(write-line "")
 (write-line "----------------------------------------- Task №35 ------------------------------------------")
 ;Задача 35
 ;1. Определите функцию ПОДМНОЖЕСТВО, которая проверяет, является ли одно множество подмножеством другого.
