@@ -5,48 +5,46 @@
 (write-line "------------------------------------V-----------------V--------------------------------------")
 (write-line "")
 (write-line "")
-(write-line "----------------------------------------- Task №16 ------------------------------------------")
-;Задача 16
-;Определите функцию, добавляющую элементы одного списка во второй список, начиная с заданной позиции.
-;Код:
-  (defun AddInList (list additionalList index) 
-    ((lambda (head tail) 
-      (cond ((equal 0 index) (cons additionalList list))
-        (t (cons head (AddInList tail additionalList (- index 1))))
-        )
-      )
-      (car list)
-      (cdr list)
-    )
-  )
-
-(write-line "")
-(write-line "Test-cases:")
-
-;Тесты:
-(print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 4))
-(print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 9))
-(print(AddInList '(1 2 3 4 5 7 8 9) "Put me Here" 0))
-
-(write-line "")
-(write-line "")
 (write-line "----------------------------------------- Task №17 ------------------------------------------")
 ;Задача 17
 ;Создайте предикат, порождающий всевозможные перестановки исходного множества
 ;Код:
-(defun insert (a b c)
-  (cond ((null c) (list (append b (list a))))
-     (t (cons (append b (list a) c) (insert a (append b (list (car c))) (cdr c))))))
-(defun rotate (lst)
-  (cond ((null (cdr lst)) (list lst))
-     (t (apply 'append (mapcar (lambda (x) (insert (car lst) nil x)) (rotate (cdr lst)))))))
+(defun insert-elem-in-each-position (a b c)
+  (cond 
+      ((null c) (list (append b (list a))))
+      (t
+          (cons 
+               (append b (list a) c) 
+               (insert-elem-in-each-position a (append b (list (car c))) (cdr c))
+           )
+       )
+   )
+)
+(defun add-elem-for-each-permutation (elem perm-lst)
+	(cond
+		((null perm-lst) nil)
+		(t (append
+				(insert-elem-in-each-position elem nil (car perm-lst))
+				(add-elem-for-each-permutation elem (cdr perm-lst))))
+	)
+)
+(defun permutations (lst)
+	(cond
+		((null lst) nil)
+		((null (cdr lst)) (list lst))
+		(t (add-elem-for-each-permutation
+			(car lst)
+			(permutations (cdr lst))))
+	)
+)
+
 (write-line "")
 (write-line "Test-cases:")
 
 ;Тесты:
-(print(rotate '(k l)))
-(print(rotate '(k l m)))
-(print(rotate '(k l m n)))
+(print(permutations '(1 2)))
+(print(permutations '(1 2 3)))
+(print(permutations '(1 2 3 4)))
 
 (write-line "")
 (write-line "")
@@ -55,41 +53,55 @@
 ;1. Определите функцию ПОДМНОЖЕСТВО, которая проверяет, является ли одно множество подмножеством другого.
 ;Код:
 (defun my-member (a li)
-	(cond ((null li) nil) ((equal a (car li)) T)
+	(cond
+		((null li) nil)
+		((equal a (car li)) T)
 		(t (my-member a (cdr li)))
 	)
 )
-(defun subset (a b)
-	(not (mapcan (lambda (el)
-		(cond ((not (my-member el b)) (list T)))
-                )
-        a)
-	)
+
+(defun set1-subset-set2 (set1 set2)
+	(cond 
+		((null set1) T)
+        ((my-member (car set1) set2) (set1-subset-set2 (cdr set1) set2))
+		(t nil)
+    )
 )
 
 (write-line "")
 (write-line "Part 1. Test-cases:")
 
 ;Тесты:
-(print (subset '(1 2 3) '(5 7 8)))
-(print (subset '(8 4 2) '(6 3 4 7 2 8)))
-(print (subset '(3 6 5 7) '(3)))
+(print (set1-subset-set2 '(1 2 4) '(1 5 a 4 2)))
+(print (set1-subset-set2 '(1 (a 5 v) 2) '(5 2 (a 5 v) 1 7)))
+(print (set1-subset-set2 '(1 2 v 5) '(v 6 2 1)))
 
 (write-line "")
 
 ;2. Определите также СОБСТВЕННОЕ-ПОДМНОЖЕСТВО.
 ;Код:
-(defun proper-subset (a b)
-    (and (subset a b) (not (equal a b)))
+(defun set1-equal-set2 (set1 set2)
+	(and
+		(set1-subset-set2 set1 set2)
+		(set1-subset-set2 set2 set1)
+	)
+)
+
+(defun own-subset (set1 set2)
+	(and 
+		(not (null set1))
+		(not (set1-equal-set2 set1 set2))
+		(set1-subset-set2 set1 set2)
+	)
 )
 
 (write-line "")
 (write-line "Part 2. Test-cases:")
 
 ;Тесты:
-(print (proper-subset '(1 2 3) '(1 2 3)))
-(print (proper-subset '(1 2 3) '(1 2 3 4 5 6 7 8)))
-(print (proper-subset '(0 5 7 7) '(1 2 3 4 5 0 7 5 7)))
+(print (own-subset '(1 2 3) '(1 2 3)))
+(print (own-subset '(1 2 3) '(1 2 3 4 5 6 7 8)))
+(print (own-subset '(0 5 7 7) '(1 2 3 4 5 0 7 5 7)))
 
 (write-line "")
 (write-line "")
@@ -162,28 +174,44 @@
 ;с одним общим родителем.
 ;Код:
 
-(defun parents (x)
-	(list (get x 'mom) (get x 'dad))
+(defun link-parents(child mom dad)
+    (setf (get child 'mom) mom)
+    (setf (get child 'dad) dad)
 )
-(defun brother (x y)
-	(or (eq (get x 'mom) (get y 'mom))
-		(eq (get x 'dad) (get y 'dad))
-	)
+
+(defun get-parents(child)
+    (list (get-mom child) (get-dad child))
 )
-(setf (get 'x 'mom) 'a)
-(setf (get 'x 'dad) 'b)
-(setf (get 'y 'mom) 'a)
-(setf (get 'y 'dad) 'b)
-(setf (get 'z 'mom) 'c)
-(setf (get 'z 'dad) 'd)
+
+(defun get-dad(child)
+    (get child 'dad)
+)
+
+(defun get-mom(child)
+    (get child 'mom)
+)
+
+(defun sisters-brothers(child1 child2)
+    (cond
+        ((eq (get-mom child1) (get-mom child2)) T)
+        ((eq (get-dad child1) (get-dad child2)) T)
+        (T NIL)
+    )
+)
+
+(link-parents 'child_1 'mom_1 'dad_1)
+(link-parents 'child_2 'mom_2 'dad_2)
+(link-parents 'child_3 'mom_2 'dad_1)
+(link-parents 'child_4 'mom_3 'dad_3)
 
 (write-line "")
 (write-line "Test-cases:")
 
 ;Тесты:
-(print (parents 'x))
-(print (brother 'y 'x))
-(print (brother 'y 'z))
+(print (sisters-brothers 'child_1 'child_2))
+(print (sisters-brothers 'child_2 'child_3))
+(print (sisters-brothers 'child_3 'child_1))
+(print (sisters-brothers 'child_2 'child_4))
 
 (write-line "")
 (write-line "")
