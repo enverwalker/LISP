@@ -31,13 +31,15 @@
 ;Задача 13
 ;Определите функцию, которая возвращает в качестве значения свое определение (лямбда-выражение).
 ;Код:
-(defun retMe (&rest args)
-    (symbol-function 'retMe))
+(setq retMe '( (lambda (x)
+		(list x (list (quote quote) x)))
+ 		(quote (lambda (x)
+ 		(list x (list (quote quote) x))))))
 
 (write-line "")
 (write-line "Test-cases:")
 
 ;Тесты:
-(print (retMe))
-(print (retMe 'a))
-(print (retMe 1 2 3 4 5))
+(print(eval retMe))
+(print(eval(eval retMe)))
+(print(eval(eval (eval retMe))))
