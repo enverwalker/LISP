@@ -12,18 +12,35 @@
 ;Определите фильтр (УДАЛИТЬ-ЕСЛИ-НЕ пред список), удаляющий из списка список все элементы,
 ;которые не обладают свойством, наличие которого проверяет предикат пред.
 ;Код:
-(defun delIfNo (pred lst)
-	(mapcan pred lst)
+(defun isMember (lst elem)
+    (cond 
+        ((null (mapcan (lambda(x) (list (eq elem x))) lst)) nil)
+        (t t)
+    )
 )
-(setq a 10)
+(defun isHasProperty-p (x) 
+    (isMember (symbol-plist x) 'p)
+)
+(defun delIfNo (pred lst)
+    (mapcan (lambda(x)
+                   (cond
+                       ((funcall pred x) (list x))
+                       (t nil)
+                   )
+            ) lst)
+)
+(setf (get 'A 'p) t)
+(setf (get 'B 'p) t)
+(setf (get 'C 'p) t)
+(setf (get 'D 'p) nil)
 
 (write-line "")
 (write-line "Test-cases:")
 
 ;Тесты:
-(print(delIfNo 'atom '((1 5) (7 3) 9)))
-(print(delIfNo 'numberp '(x y)))
-(print(delIfNo 'boundp '(a)))
+(print (delIfNo 'isHasProperty-p '(A H B E C G D F)))
+(print (delIfNo 'isHasProperty-p '(S W T Y G H)))
+(print (delIfNo 'isHasProperty-p '(V L S K B C R D)))
 
 (write-line "")
 (write-line "")
