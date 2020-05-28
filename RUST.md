@@ -293,4 +293,15 @@ let reqchan = chan(reqport);
 ```
 Несколько каналов могут быть подключены к одному порту, но не наоборот — один канал не может быть подключен одновременно к нескольким портам.
 
-На этом все. При желании можно уже сейчас собрать компилятор Rust и попробовать поиграться с различными примерами. Информация по сборке приведена на [официальном сайте языка](https://www.rust-lang.org/ru/ "официальном сайте языка").
+### Полезные ресурсы
+
+При желании можно уже сейчас собрать компилятор Rust и попробовать поиграться с различными примерами. Информация по сборке приведена на [официальном сайте языка](https://www.rust-lang.org/ru/ "официальном сайте языка").
+
+Также привожу дополнительные ссылки:
+
+ 
+[Programming Rust: Fast, Safe Systems Development](https://www.amazon.com/Programming-Rust-Fast-Systems-Development/dp/1491927283/ref=sr_1_2?ie=UTF8&qid=1544963104&sr=8-2) — хорошая книга, есть так же в электронном варианте
+[Rust - новый язык программирования](https://www.ibm.com/developerworks/ru/library/l-rust1/l-rust1-pdf.pdf) — статья от IBM
+[Idiomatic Rust code](https://github.com/mre/idiomatic-rust) — список статей
+ruRust/easy и ruRust/general — каналы в Gitter
+[Reddit](https://www.reddit.com/r/rust/) 
